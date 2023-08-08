@@ -1,0 +1,102 @@
+﻿@model Hayvan
+
+<form method="post" enctype="multipart/form-data">
+    <input asp-for="ResimUrl" hidden />
+    <div class="row">
+        <div class="col-10">
+
+
+            <div class="border p-3 mt-5">
+                <div class="row pb-3">
+                    <h2 class="text-primary">@(Model == null ? "Hayvan Ekle" : "Hayvan Guncelle")</h2>
+                    <hr />
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="HayvanAdi" class="p-0"></label>
+                    <input asp-for="HayvanAdi" class="from-control" />
+                    <span asp-validation-for="HayvanAdi" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="HayvanTuruId" class="p-0"></label>
+                    <select asp-for="HayvanTuruId" asp-items="ViewBag.HayvanTuruList" class="from-select">
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Tanim" class="p-0"></label>
+                    <input asp-for="Tanim" class="from-control" />
+                    <span asp-validation-for="Tanim" class="text-danger"></span>
+                </div>
+
+
+                <div class="mb-3">
+                    <label asp-for="Cinsiyet" class="p-0"></label>
+                    <input asp-for="Cinsiyet" class="from-control" />
+                    <span asp-validation-for="Cinsiyet" class="text-danger"></span>
+                </div>
+
+
+                <div class="mb-3">
+                    <label asp-for="Fiyat" class="p-0"></label>
+                    <input asp-for="Fiyat" class="from-control" />
+                    <span asp-validation-for="Fiyat" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="ResimUrl" class="p-0"></label>
+                    <input type="file" name="file" class="from-control" />
+
+                </div>
+
+                @if (Model != null)
+                {
+                    <button type="sumbit" class="btn btn-lg btn-primary" style="width=250px">Güncelle</button>
+
+                }
+                else
+                {
+                    <button type="sumbit" class="btn btn-lg btn-primary" style="width=250px">Hayvan  Ekle</button>
+
+                }
+
+
+                <a asp-controller="Hayvan" asp-action="Index" class="btn btn-lg btn-primary" style="width=250px">
+                    Hayvanlara Geri Dön
+                </a>
+
+
+
+
+            </div>
+        </div>
+        <div class="col-2">
+            @if (Model != null)
+            {
+                <img src="@Model.ResimUrl" width="100%" 
+                style="border-radius:7px; border:1px solid #bbb9b9" 
+            />
+            }
+
+        </div>
+
+
+    </div>
+
+
+
+
+    
+
+
+</form>
+
+
+
+
+}
+
+
+
+
