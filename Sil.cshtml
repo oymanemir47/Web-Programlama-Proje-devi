@@ -1,0 +1,46 @@
+﻿@model Sahiplenme
+
+<form method="post">
+    
+    <div class="border p-3 mt-5">
+        <div class="row pb-3">
+            <h2 class="text-primary">Hayvan Sahiplenme Başvurusu Sil </h2>
+            <hr />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="MusteriId" class="p-0"></label>
+            <input asp-for="MusteriId" disabled class="from-control" />
+            
+        </div>
+        <div class="mb-3">
+            <label asp-for="HayvanId" class="p-0"></label>
+            <select asp-for="HayvanId" asp-items="ViewBag.HayvanList" disabled class="from-select">
+            </select>
+        </div>
+
+
+
+        <button type="sumbit" class="btn btn-lg btn-primary" style="width=250px"> Sahiplenme Başvurusu Sil</button>
+
+        <a asp-controller="Sahiplenme" asp-action="Index" class="btn btn-lg btn-primary" style="width=250px">
+            Sahiplenmelere Geri Dön
+        </a>
+
+
+
+
+    </div>
+
+
+</form>
+
+
+
+
+}
+
+
+
+
+

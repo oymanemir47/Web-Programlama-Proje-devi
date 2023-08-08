@@ -1,0 +1,88 @@
+﻿@model Sahiplenme
+
+<form method="post" enctype="multipart/form-data">
+   
+    <div class="row">
+        <div class="col-10">
+      
+
+
+            <div class="border p-3 mt-5">
+                <div class="row pb-3">
+                    <h2 class="text-primary">@(Model == null ? "Sahiplenme" : "Sahiplenme Guncelle")</h2>
+                    <hr />
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="MusteriId" class="p-0"></label>
+                    <input asp-for="MusteriId" class="from-control" />
+                    <span asp-validation-for="MusteriId" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="HayvanId" class="p-0"></label>
+                    <select asp-for="HayvanId" asp-items="ViewBag.HayvanList" class="from-select">
+                    </select>
+                </div>
+
+              
+
+
+               
+                
+
+                @if (Model != null)
+                {
+                    <button type="sumbit" class="btn btn-lg btn-primary" style="width=250px">Güncelle</button>
+
+                }
+                else
+                {
+                    <button type="sumbit" class="btn btn-lg btn-primary" style="width=250px">Yeni Sahiplenme</button>
+
+                }
+
+
+                <a asp-controller="Sahiplenme" asp-action="Index" class="btn btn-lg btn-primary" style="width=250px">
+                    Sahiplenmelere Geri Dön
+                </a>
+
+
+
+
+            </div>
+        </div>
+
+            <div class="col-2">
+            @if (Model != null)
+            {
+                <br /> <br /> <br />
+                <img src="@Model.Hayvan.ResimUrl" width="100%"
+                     style="border-radius:7px; border:1px solid #bbb9b9" />
+            }
+            </div>
+
+       
+        
+    </div>
+        
+
+
+    
+
+
+
+
+    
+
+
+</form>
+
+
+
+
+}
+
+
+
+
